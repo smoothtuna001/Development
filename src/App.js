@@ -169,8 +169,15 @@ function App(){
  return (
 
   <ul className="list-group justify-content-end">
-    <div className='row d-flex flex-row-reverse mx-3'>
-      <div className='col-lg-8'>
+    <div className='row d-flex flex-row mx-3'>
+      <div className='col-lg-4 col-md-4 col-sm-12'>
+        <div className='card sticky-top m-2'>
+          <h1 className='card-body'> this is a header</h1>
+
+        </div>
+        
+      </div>
+      <div className='col-lg-8 col-md-8 col-sm-12'>
           <Books className="bookCard"
               id={books[0].bID} 
               name={books[0].bName}
