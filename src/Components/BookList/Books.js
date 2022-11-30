@@ -1,7 +1,11 @@
-import BookDetails from './BookList/BookDetails';
+import BookDetails from './BookDetails';
 
 
 function Books(props){
+
+  function onSendData(book){
+    props.sendData(book);
+  }
     
 
     return(
@@ -11,7 +15,7 @@ function Books(props){
           <h5 className="mt-0 font-weight-bold mb-2">{props.name}</h5>
           <h6 className="mt-0 font-weight-bold mb-2">{props.author}, {props.year}</h6>
           <p className="font-italic text-muted mb-2 small">{props.description}</p>
-          <BookDetails price={props.price}isAvailable={props.isAvailable}/>
+          <BookDetails sendBook={onSendData}name={props.name} price={props.price}isAvailable={props.isAvailable}/>
         </div><img src={props.imageURL} alt="Generic placeholder image" width="100" className="ml-lg-5 order-1 order-lg-2 m-3" />
         </div>
     </li>

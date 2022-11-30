@@ -22,10 +22,23 @@ function BookDetails(props){
 
     }
 
+    let activeCheck = ((props.isAvailable && bookCount>0) ?  "": "disabled")
+
     let decrementBookCount = function(){
         // bookCount--;
         // console.log(bookCount)
         setCount(--bookCount);
+
+    }
+
+    let handleAddCart = function(){
+        
+        let cartItem= {
+            name: props.name,
+            quantity: bookCount,
+            price: props.price 
+        }
+        props.sendBook(cartItem);
 
     }
 
@@ -38,8 +51,8 @@ function BookDetails(props){
                 {displayFormattedProductCount()}
             </span>
             <Button eventHandler={incrementBookCount}>+</Button>
-            <span className={badgeClass + " mx-2"}>{props.isAvailable ? 'Available' : 'Unavailable'} </span>
-            <Button>Add to Cart</Button>
+            <span className={badgeClass + " mx-2 "}>{props.isAvailable ? 'Available' : 'Unavailable'} </span>
+            <Button eventHandler={handleAddCart} isActive={activeCheck}>Add to Cart</Button>
           </div>
 
     )
